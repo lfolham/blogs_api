@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, DataTypes) => {
-    return queryInterface.createTable('BlogPosts', {
+    return queryInterface.createTable('blog_posts', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -18,7 +18,7 @@ module.exports = {
         type: DataTypes.STRING,
       },
       user_id: {
-        allowNull: true,
+        allowNull: false,
         type: DataTypes.INTEGER,
       },
       published: {
@@ -32,7 +32,7 @@ module.exports = {
     });
   },
 
-  down: (queryInterface) => {
-    return queryInterface.dropTable('BlogPosts');
+  down: (queryInterface, _Sequelize) => {
+    return queryInterface.dropTable('blog_posts');
   },
 };

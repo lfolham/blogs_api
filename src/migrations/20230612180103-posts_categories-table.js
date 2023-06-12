@@ -2,23 +2,21 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable('PostsCategories', {
-      post_id: {
+    return queryInterface.createTable('post_categories', {
+      post_id:{
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
-      category_id: {
+      category_id:{
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
-    })
+    });
   },
 
   down: async (queryInterface, _Sequelize) => {
-  return queryInterface.dropTable('PostsCategories');
+    return queryInterface.dropTable('post_categories');
   }
 };
