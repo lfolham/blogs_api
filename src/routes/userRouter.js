@@ -22,4 +22,10 @@ validateJwt,
 userController.getAllUsers,
 );
 
+userRouter.get(
+'/:id', 
+validateJwt,
+userController.getUserById,
+);
+
 module.exports = userRouter;
