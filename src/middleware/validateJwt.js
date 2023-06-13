@@ -1,4 +1,6 @@
-const { generateToken } = require('../utils/jwt');
+const jwt = require('jsonwebtoken');
+
+const { JWT_SECRET } = process.env;
 
 const validateJWT = (req, res, next) => {
   const token = req.header('Authorization');
@@ -7,15 +9,13 @@ const validateJWT = (req, res, next) => {
     return res.status(401).json({ message: 'Token not found' });
   }
 
-  const validation = generateToken(token);
-
-  if (!validation) {
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    req.user = decoded;
+    next();
+  } catch (error) {
     return res.status(401).json({ message: 'Expired or invalid token' });
   }
-
-  next();
 };
 
-module.exports = {
-  validateJWT,
-};
+module.exports = validateJWT;

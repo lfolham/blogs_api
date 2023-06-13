@@ -1,6 +1,11 @@
 const { User } = require('../models');
 const { generateToken } = require('../utils/jwt');
 
+const getAllUsers = async () => {
+  const users = await User.findAll({ attributes: { exclude: ['password'] } });
+  return users;
+};
+
 const findByEmail = async (email) => {
   const findUser = await User.findOne({ where: { email } });
   return findUser;  
@@ -19,6 +24,7 @@ const createUser = async ({ displayName, email, password, image }) => {
 };  
 
 module.exports = {
+  getAllUsers,
   findByEmail,
   createUser,
 };
