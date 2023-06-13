@@ -9,8 +9,8 @@ const getUserById = async (req, res) => {
   const { id } = req.params;
   const user = await userService.getUserById(id);
 
-  if (!user) {
-    return res.status(404).json({ error: 'User does not exist' });
+  if (user.error) {
+    return res.status(404).json({ message: user.error });
   }
 
   return res.status(200).json(user);
