@@ -10,7 +10,6 @@ const login = async ({ password, email }) => {
   if (!user) {
     return { error: 'Invalid fields' };
   }
-  console.log('asd', user);
 
   const token = generateToken(user);
   return { user, token };
