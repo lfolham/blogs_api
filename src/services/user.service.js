@@ -7,10 +7,15 @@ const findByEmail = async (email) => {
 };
 
 const createUser = async ({ displayName, email, password, image }) => {
-  const newUser = await User.createUser({ displayName, email, password, image });
+  const userRegistered = await findByEmail(email);
+
+  if (userRegistered) {
+    return { error: 'User already registered' };
+  }
+  const newUser = await User.create({ displayName, email, password, image });
 
   const token = generateToken(newUser);
-  return token;
+  return { newUser, token };
 };  
 
 module.exports = {
