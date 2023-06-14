@@ -4,6 +4,12 @@ const validateJwt = require('../middleware/validateJwt');
 
 const categoriesRouter = Router();
 
+categoriesRouter.get(
+'/', 
+validateJwt,
+categoriesController.getAllCategories,
+);
+
 categoriesRouter.post(
 '/', 
 validateJwt,
