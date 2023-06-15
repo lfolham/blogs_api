@@ -1,4 +1,4 @@
-const { postService } = require('../services/post.service');
+const postService = require('../services/post.service');
 
 const getAllPost = async (_req, res) => {
     const post = await postService.getAllPost();

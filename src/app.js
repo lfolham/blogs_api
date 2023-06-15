@@ -2,7 +2,7 @@ const express = require('express');
 const loginRouter = require('./routes/loginRouter');
 const userRouter = require('./routes/userRouter');
 const cotegoriesRouter = require('./routes/categoriesRouter');
-const postRouter = require('./routes/categoriesRouter');
+const postRouter = require('./routes/postRouter');
 // ...
 
 const app = express();
