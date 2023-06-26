@@ -21,5 +21,6 @@ app.use('/post', postRouter);
 // ...
 
 // É importante exportar a constante `app`,
+// teste
 // para que possa ser utilizada pelo arquivo `src/server.js`
 module.exports = app;
