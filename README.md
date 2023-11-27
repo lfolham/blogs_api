@@ -18,14 +18,6 @@
 - DELETE /user/me Deletes the logged-in user Authentication token
 - GET /post/search?q=term Returns posts that match the search term Authentication token
 
-💡 Stacks Utilizadas
-Linguagem de Programação: JavaScript
-Framework de Desenvolvimento: Express
-Banco de Dados: MySQL
-ORM (Object-Relational Mapping): Sequelize
-Ferramenta de Análise de Código Estático: ESLint
-Ferramenta de Formatação de Código: Prettier
-
 💡 Stacks Used
 Programming Language: JavaScript
 Development Framework: Express
